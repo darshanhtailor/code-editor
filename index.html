@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #options {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0px;
+            font-family: sans-serif;
+        }
+
+        #itemContainer{
+            display: flex;
+        }
+
+        .item {
+            margin: 0px 20px;
+        }
+
+        #container {
+            display: flex;
+        }
+
+        #editor {
+            width: 100%;
+            height: 90vh;
+            border: 1px solid black;
+        }
+
+        #stdinout {
+            margin-left: 10px;
+        }
+
+        #stdinout textarea {
+            resize: none;
+            scrollbar-width: thin;
+            height: 35vh;
+            padding: 5px;
+        }
+
+        .label {
+            background-color: rgb(218, 218, 218);
+            padding: 5px;
+            margin-bottom: 2px;
+            font-family: sans-serif;
+        }
+
+        footer {
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        #runButton{
+            background-color: #ffcc00;
+            height: 50px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            #stdinout{
+                display: none;
+            }
+        }
+    </style>
+    <title>Codezee</title>
+</head>
+
+<body>
+    <div id="options">
+        <div style="cursor: pointer;">Codezee Online Code Editor</div>
+
+        <div id="itemContainer">
+            <div class="item">
+                <label for="langs">Language: </label>
+                <select name="langs" id="langs">
+                    <option value="c_cpp">C</option>
+                    <option value="c_cpp">C++</option>
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="java">Java</option>
+                </select>
+            </div>
+    
+            <div class="item">
+                <label for="themes">Theme: </label>
+                <select name="themes" id="themes">
+                    <option value="monokai">Monokai</option>
+                    <option value="twilight">Twilight</option>
+                    <option value="xcode">Xcode</option>
+                    <option value="tomorrow">Tomorrow</option>
+                </select>
+            </div>
+        </div>
+
+        <div style="cursor: pointer;">About</div>
+
+    </div>
+    <div id="container">
+        <div id="editor"></div>
+        <div id="stdinout">
+            <div style="margin-bottom: 10px;">
+                <div class="label">Input</div>
+                <textarea name="stdin" id="input" cols="45" wrap="off"></textarea>
+            </div>
+            <div>
+                <div class="label">Output</div>
+                <textarea name="stdout" id="output" cols="45" wrap="off"></textarea>
+            </div>
+            <div id="runButton">
+                Run Code
+            </div>
+        </div>
+    </div>
+    <footer>Made with ❤️ by Darshan Tailor.</footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js"></script>
+<script src="./index.js"></script>
+
+</html>
