@@ -6,81 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>
-        #options {
-            display: flex;
-            justify-content: space-between;
-            margin: 5px 0px;
-            font-family: sans-serif;
-        }
-
-        #itemContainer{
-            display: flex;
-        }
-
-        .item {
-            margin: 0px 20px;
-        }
-
-        #container {
-            display: flex;
-        }
-
-        #editor {
-            width: 100%;
-            height: 90vh;
-            border: 1px solid black;
-        }
-
-        #stdinout {
-            margin-left: 10px;
-        }
-
-        #stdinout textarea {
-            resize: none;
-            scrollbar-width: thin;
-            height: 35vh;
-            padding: 5px;
-        }
-
-        .label {
-            background-color: rgb(218, 218, 218);
-            padding: 5px;
-            margin-bottom: 2px;
-            font-family: sans-serif;
-        }
-
-        footer {
-            text-align: center;
-            font-family: sans-serif;
-        }
-
-        #runButton{
-            background-color: #ffcc00;
-            height: 50px;
-        }
-
-        @media only screen and (max-width: 768px) {
-            #stdinout{
-                display: none;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Codezee</title>
 </head>
 
 <body>
     <div id="options">
-        <div style="cursor: pointer;">Codezee Online Code Editor</div>
+        <div style="cursor: pointer; user-select: none;">Codezee Online Code Editor</div>
 
         <div id="itemContainer">
             <div class="item">
                 <label for="langs">Language: </label>
                 <select name="langs" id="langs">
-                    <option value="c_cpp">C</option>
-                    <option value="c_cpp">C++</option>
-                    <option value="python">Python</option>
-                    <option value="javascript">JavaScript</option>
+                    <option value="c_cpp">C (gcc 11.1.0)</option>
+                    <option value="c_cpp">C++ 17 (gcc 11.1.0)</option>
+                    <option value="python">Python 3</option>
                     <option value="java">Java</option>
                 </select>
             </div>
@@ -118,6 +58,6 @@
     <footer>Made with ❤️ by Darshan Tailor.</footer>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js"></script>
-<script src="./index.js"></script>
+<script src="/js/index.js"></script>
 
 </html>
