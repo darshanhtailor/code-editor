@@ -17,7 +17,19 @@ $('#themes').change(()=>{
 
 // Execute code
 const execute = ()=>{
-    const stdin
+    let stdin = $('#input').value
+    if(!stdin) stdin = ''
+    console.log(stdin)
+
+    const script = editor.getValue()
+    console.log(script)
+
+    let lang = $('#langs').value
+    if(!lang) lang = ''
+    console.log(lang)
+
+
+    // const
 }
 
 $('#runButton').click(execute())
