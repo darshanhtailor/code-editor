@@ -19,17 +19,32 @@ $('#themes').change(()=>{
 const execute = ()=>{
     let stdin = $('#input').value
     if(!stdin) stdin = ''
-    console.log(stdin)
 
-    const script = editor.getValue()
-    console.log(script)
+    let script = editor.getValue()
+    if(!script) script = ''
 
-    let lang = $('#langs').value
-    if(!lang) lang = ''
-    console.log(lang)
-
-
-    // const
+    let version
+    let lang = $('#langs option:selected').text()
+    if(lang == 'C'){
+        lang = 'c'
+        version = 5
+    }
+    else if(lang == 'C++ 17'){
+        lang = 'cpp17'
+        version = 1
+    }
+    else if(lang == 'Python 3'){
+        lang = 'python3'
+        version = 4
+    }
+    else if(lang == 'Java'){
+        lang = 'java'
+        version = 4
+    }
+    else if(!lang){
+        lang = ''
+        version = 0
+    }   
 }
 
 $('#runButton').click(execute())
