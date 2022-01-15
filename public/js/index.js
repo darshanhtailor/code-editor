@@ -46,9 +46,13 @@ const execute = ()=>{
         version = 0
     }
 
-    const query = `http://localhost:3000/execute?stdin=${stdin}&script=${script}&lang=${lang}&version=${version}`
-    console.log(query)
-    fetch(query).then((response)=>{
+    const program = {stdin, script, lang, version}
+
+    fetch('http://localhost:3000/execute',{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'}, 
+        body: JSON.stringify(program)
+    }).then((response)=>{
         response.json().then((output)=>{
             if(output.error){
                 return console.log(output.error)

@@ -1,6 +1,6 @@
 const request = require('request')
 
-const runCode = (stdin, script, lang, version, callback)=>{
+const runCode = ({stdin, script, lang, version}, callback)=>{
     const program = {
         script : script,
         stdin: stdin,

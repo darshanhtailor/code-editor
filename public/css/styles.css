@@ -41,6 +41,10 @@
     font-family: sans-serif;
 }
 
+#output{
+    white-space: pre-line;
+}
+
 footer {
     text-align: center;
     font-family: sans-serif;

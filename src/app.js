@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const runCode = require('./utils/runCode')
-const request = require('request')
+const bodyParser = require('body-parser')
 
 const app = express()
 app.set('view engine', 'hbs')
@@ -9,25 +9,15 @@ app.set('view engine', 'hbs')
 const publicDir = path.join(__dirname, '../public')
 app.use(express.static(publicDir))
 
+const jsonParser = bodyParser.json()
+const urlencodedParser = bodyParser.urlencoded({extended: false})
+
 app.get('/', (req, res)=>{
     res.render('index')
 })
 
-app.get('/execute', (req, res)=>{
-    const qry = req.query
-    if(!qry.stdin){
-        res.send('Missing stdin')
-    }
-    else if(!qry.script){
-        res.send('Missing script')
-    }
-    else if(!qry.lang){
-        res.send('Missing language')
-    }
-    else if(!qry.version){
-        res.send('Missing version')
-    }
-    runCode.execute(qry.stdin, qry.script, qry.lang, qry.version, (error, response)=>{
+app.post('/execute', jsonParser, (req, res)=>{
+    runCode.execute(req.body, (error, response)=>{
         if(error){
             return res.send(error)
         }
