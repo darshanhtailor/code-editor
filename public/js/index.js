@@ -17,7 +17,7 @@ $('#themes').change(()=>{
 
 // Execute code
 const execute = ()=>{
-    let stdin = $('#input').value
+    let stdin = $('#input').val()
     if(!stdin) stdin = ''
 
     let script = editor.getValue()
@@ -44,7 +44,19 @@ const execute = ()=>{
     else if(!lang){
         lang = ''
         version = 0
-    }   
+    }
+
+    const query = `http://localhost:3000/execute?stdin=${stdin}&script=${script}&lang=${lang}&version=${version}`
+    console.log(query)
+    fetch(query).then((response)=>{
+        response.json().then((output)=>{
+            if(output.error){
+                return console.log(output.error)
+            }
+            console.log(output)
+        })
+    })
 }
 
-$('#runButton').click(execute())
+const runBtn = document.getElementById('runButton')
+runBtn.addEventListener('click', execute)

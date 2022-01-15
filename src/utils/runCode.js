@@ -1,9 +1,6 @@
 const request = require('request')
 
 const runCode = (stdin, script, lang, version, callback)=>{
-    console.log(script)
-    console.log(stdin)
-    console.log(lang)
     const program = {
         script : script,
         stdin: stdin,
@@ -15,6 +12,9 @@ const runCode = (stdin, script, lang, version, callback)=>{
     request({
         url: 'https://api.jdoodle.com/v1/execute',
         method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
         json: JSON.stringify(program)
     }, (error, response)=>{
         if(error)
