@@ -5,6 +5,10 @@
     font-family: sans-serif;
 }
 
+#about{
+    text-decoration: none;
+}
+
 #itemContainer{
     display: flex;
 }
@@ -67,7 +71,8 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
-    #stdinout{
-        display: none;
+    #container{
+        flex-direction: column;
+        align-items: center;
     }
 }
