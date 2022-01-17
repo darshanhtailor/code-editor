@@ -48,18 +48,23 @@ const execute = ()=>{
 
     const program = {stdin, script, lang, version}
 
-    fetch('http://localhost:3000/execute',{
+    fetch('/execute',{
         method: "POST",
         headers: {'Content-Type': 'application/json'}, 
         body: JSON.stringify(program)
     }).then((response)=>{
-        response.json().then((output)=>{
-            if(output.error){
-                return console.log(output.error)
+        response.json().then((programOutput)=>{
+            if(programOutput.error){
+                return console.log(programOutput.error)
             }
-            console.log(output)
+            displayOutput(programOutput.body.output)
         })
     })
+}
+
+// Display output
+const displayOutput = (output)=>{
+    
 }
 
 const runBtn = document.getElementById('runButton')
