@@ -11,6 +11,7 @@ app.use(express.static(publicDir))
 
 const jsonParser = bodyParser.json()
 const urlencodedParser = bodyParser.urlencoded({extended: false})
+const port = process.env.PORT || 3000
 
 app.get('/', (req, res)=>{
     res.render('index')
@@ -25,6 +26,6 @@ app.post('/execute', jsonParser, (req, res)=>{
     })
 })
 
-app.listen(3000, ()=>{
+app.listen(port, ()=>{
     console.log('Server started')
 })
