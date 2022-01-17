@@ -64,7 +64,7 @@ const execute = ()=>{
 
 // Display output
 const displayOutput = (output)=>{
-    
+    $('#output').val(output)
 }
 
 const runBtn = document.getElementById('runButton')
